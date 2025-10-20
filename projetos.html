@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ONG do Amor — Projetos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">ONG do Amor</a>
+      <button id="btn-menu" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">☰</button>
+      <nav id="main-nav" class="main-nav">
+        <ul>
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="projetos.html" class="nav-link">Projetos</a></li>
+          <li><a href="voluntariado.html" class="nav-link">Voluntariado</a></li>
+          <li><a href="doacoes.html" class="nav-link">Doações</a></li>
+          <li><a href="admin.html" class="nav-link">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <h1 class="section-title">Projetos Ativos</h1>
+    <p>Veja nossos projetos em andamento e acompanhe o progresso de cada um.</p>
+
+    <div class="project-actions">
+      <button id="btn-add-project" class="btn primary">+ Novo Projeto</button>
+    </div>
+
+    <div id="project-list" class="project-list grid-2" aria-live="polite">
+      <!-- JS renderiza aqui -->
+    </div>
+  </main>
+
+  <!-- Modal para novo projeto -->
+  <div id="project-modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <h2>Novo Projeto</h2>
+      <form id="form-project">
+        <label>
+          Nome do Projeto:
+          <input type="text" id="proj-title" required />
+        </label>
+        <label>
+          Resumo:
+          <textarea id="proj-summary" rows="3" required></textarea>
+        </label>
+        <label>
+          Categoria:
+          <select id="proj-category" required>
+            <option value="">Selecione...</option>
+            <option>Animal</option>
+            <option>Saúde</option>
+            <option>Desenvolvimento</option>
+            <option>Outros</option>
+          </select>
+        </label>
+        <label>
+          Progresso (%):
+          <input type="number" id="proj-progress" min="0" max="100" value="0" />
+        </label>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn primary">Salvar</button>
+          <button type="button" id="btn-cancel" class="btn">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Galeria simples -->
+    <section class="gallery" aria-labelledby="gallery-title">
+      <h2 id="gallery-title" class="section-title">Galeria</h2>
+      <div class="gallery-pro">
+        <figure>
+          <img src="img/Projetos.jpeg" alt="Projeto" onerror="this.style.display='none'">
+          <figcaption>Projeto Ong de Animais</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>ONG do Amor</strong><br />
+        <small>Email: contato@ongdoamor.org</small>
+      </div>
+      <div>© <span id="year"></span> ONG do Amor</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="projetos.js"></script>
+</body>
+</html>

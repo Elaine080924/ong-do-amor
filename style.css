@@ -1,0 +1,560 @@
+/* style.css
+   Estilo institucional simples.
+   Comentários explicam cada bloco para o relatório da faculdade.
+*/
+
+/* Reset simples */
+* { box-sizing: border-box; 
+}
+html,body { margin:0; padding:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#1f2937; background:#f7fafc; 
+}
+
+/* Container padrão */
+.container { max-width:1100px; margin:0 auto; padding:1rem; 
+}
+
+/* Header */
+.site-header { background: #ffffff; border-bottom:1px solid #e6edf3; position:sticky; top:0; z-index:50;
+ }
+.header-inner { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.75rem 0; 
+}
+.brand { font-weight:700; color:#0f172a; text-decoration:none; font-size:1.1rem; 
+}
+.menu-toggle { display:none; background:transparent; border:0; font-size:1.25rem; cursor:pointer; 
+}
+
+/* Navegação principal */
+.main-nav ul { list-style:none; display:flex; gap:0.5rem; margin:0; padding:0; align-items:center; 
+}
+.main-nav a { display:inline-block; padding:0.4rem 0.8rem; text-decoration:none; color:#0f172a; border-radius:6px; font-size:0.95rem; 
+}
+.main-nav a:hover, .main-nav a:focus { background:#eef2ff; outline: none; 
+}
+
+/* Hero */
+.hero { padding:3rem 0; background:linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border-radius:6px; margin-top:1rem; 
+}
+.hero .lead { color:#475569; margin-top:0.5rem; 
+}
+.hero-cta { margin-top:1rem; display:flex; gap:0.5rem; 
+}
+.btn { display:inline-block; padding:0.6rem 1rem; border-radius:6px; text-decoration:none; background:#eef2ff; color:#0f172a; border:1px solid transparent; 
+}
+.btn.primary { background:#0b5fff; color:#fff; 
+}
+.btn:hover, .btn:focus { opacity:0.95; transform:translateY(-1px); transition:all 0.12s ease; 
+}
+
+/* Grid helpers */
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1rem; 
+}
+.grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; 
+}
+.card { background:#fff; padding:1rem; border:1px solid #e6edf3; border-radius:6px; 
+}
+.panel { background:#fff; padding:1rem; border-radius:6px; border:1px solid #e6edf3; 
+}
+
+/* Three cards smaller screens */
+@media (max-width:900px) {
+  .grid-3, .grid-2 { grid-template-columns:1fr; }
+}
+
+/* Gallery row */
+.gallery-row { display:flex; gap:0.75rem; margin-top:0.75rem; 
+}
+.gallery-row figure { background:#fff; padding:0.5rem; border-radius:6px; width:33%; border:1px solid #e6edf3; 
+}
+.gallery-row img { width:100%; height:140px; object-fit:cover; border-radius:4px; display:block; 
+}
+.gallery-row figcaption { font-size:0.85rem; color:#475569; margin-top:0.4rem; 
+}
+@media (max-width:800px) {
+  .gallery-row { flex-direction:column; }
+  .gallery-row figure { width:100%; }
+}
+
+/* Gallery vol */
+.gallery-vol { 
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  justify-content: center; /* centraliza horizontalmente */
+  flex-wrap: wrap;         /* permite quebrar linha se necessário */
+}
+
+.gallery-vol figure { 
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 6px;
+  width: 50%;              /* aumentei de 33% para 50% */
+  max-width: 600px;        /* limita largura em telas grandes */
+  border: 1px solid #e6edf3;
+}
+
+.gallery-vol img { 
+  width: 100%;
+  height: auto;            /* mantém proporção da imagem */
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.gallery-vol figcaption { 
+  font-size: 0.85rem;
+  color: #475569;
+  margin-top: 0.4rem;
+}
+
+@media (max-width:800px) {
+  .gallery-vol { 
+    flex-direction: column;
+    align-items: center;   /* centraliza figuras empilhadas */
+  }
+  .gallery-vol figure { 
+    width: 90%;            /* ocupa quase toda a tela em mobile */
+  }
+}
+
+/* Gallery pro */
+.gallery-pro {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  justify-content: center; /* centraliza horizontalmente */
+  flex-wrap: wrap;         /* permite quebrar linha se necessário */
+}
+
+.gallery-pro figure {
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 6px;
+  width: 50%;              /* aumentei de 33% para 50% */
+  max-width: 600px;        /* limita largura em telas grandes */
+  border: 1px solid #e6edf3;
+}
+
+.gallery-pro img {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* largura:altura */
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+
+.gallery-pro figcaption {
+  font-size: 0.85rem;
+  color: #475569;
+  margin-top: 0.4rem;
+}
+
+@media (max-width:800px) {
+  .gallery-pro {
+    flex-direction: column;
+    align-items: center;   /* centraliza figuras empilhadas */
+  }
+  .gallery-pro figure {
+    width: 90%;            /* ocupa quase toda a tela em mobile */
+  }
+}
+
+/* Gallery doa */
+.gallery-doa {
+  display: flex;
+  gap: 1rem;              /* espaço entre as imagens */
+  margin-top: 1rem;
+  justify-content: center; /* centraliza horizontalmente */
+  flex-wrap: wrap;         /* permite quebrar linha se necessário */
+}
+
+.gallery-doa figure {
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 6px;
+  width: 48%;              /* duas imagens por linha */
+  border: 1px solid #e6edf3;
+}
+
+.gallery-doa img {
+  width: 100%;
+  height: 250px;           /* aumentei o tamanho da imagem */
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.gallery-doa figcaption {
+  font-size: 0.85rem;
+  color: #475569;
+  margin-top: 0.4rem;
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 800px) {
+  .gallery-doa {
+    flex-direction: column;
+  }
+  .gallery-doa figure {
+    width: 100%;
+  }
+}
+
+/* Gallery adm */
+.gallery-adm {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+  flex-wrap: nowrap; /* impede quebrar linha */
+}
+
+.gallery-adm figure {
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 6px;
+  width: 49%; /* duas imagens lado a lado */
+  border: 1px solid #e6edf3;
+}
+
+.gallery-adm img {
+  width: 100%;
+  height: 380px; /* altura grande */
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.gallery-adm figcaption {
+  font-size: 0.85rem;
+  color: #475569;
+  margin-top: 0.4rem;
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 800px) {
+  .gallery-adm {
+    flex-direction: column; /* em celular, uma em cima da outra */
+  }
+  .gallery-adm figure {
+    width: 100%;
+  }
+}
+
+/* Footer */
+.site-footer { margin-top:2rem; padding:1.25rem 0; background:#fff; border-top:1px solid #e6edf3; color:#6b7280; 
+}
+.footer-inner { display:flex; justify-content:space-between; gap:1rem; align-items:flex-start; 
+}
+.footer-links { list-style:none; padding:0; margin:0; display:flex; gap:0.5rem; 
+}
+.footer-links a { text-decoration:none; color:inherit; font-size:0.95rem; 
+}
+.copyright { margin-top:1rem; color:#94a3b8; font-size:0.9rem; 
+}
+
+/* Accessibility: visible focus */
+a:focus, button:focus, input:focus, select:focus { outline:3px solid #dbeafe; outline-offset:2px; 
+}
+
+/* Small helpers */
+.section-title { margin:0 0 0.6rem 0; font-size:1.15rem; 
+}
+.lead { font-size:1rem; 
+}
+
+/* Utility */
+.stats-list { list-style:none; padding:0; margin:0; color:#0f172a; 
+}
+/* =========================
+   PROJETOS
+========================= */
+.project-actions { margin:1rem 0; display:flex; justify-content:flex-end; 
+}
+
+.project-card {
+  background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;
+  display:flex; flex-direction:column; gap:0.5rem;
+}
+.project-card h3 { margin:0; 
+}
+.progress-bar {
+  width:100%; height:12px; border-radius:6px; background:#e2e8f0; overflow:hidden;
+}
+.progress-fill {
+  height:100%; background:#0b5fff; transition:width .3s ease;
+}
+
+/* Modal básico */
+.modal {
+  position:fixed; inset:0; display:none;
+  background:rgba(0,0,0,0.5);
+  align-items:center; justify-content:center;
+}
+.modal[aria-hidden="false"] { display:flex; 
+}
+.modal-content {
+  background:#fff; padding:1.5rem; border-radius:8px; max-width:400px; width:90%;
+}
+.modal-content form { display:flex; flex-direction:column; gap:0.6rem; 
+}
+.modal-actions { display:flex; gap:0.5rem; justify-content:flex-end; 
+}
+.modal input, .modal textarea, .modal select {
+  width:100%; padding:0.4rem; border:1px solid #cbd5e1; border-radius:4px;
+}
+/* =========================
+   VOLUNTARIADO
+========================= */
+.vol-form-section, .vol-list-section {
+  margin-top:2rem;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:8px;
+  padding:1rem;
+}
+
+.vol-form {
+  display:flex;
+  flex-direction:column;
+  gap:0.8rem;
+}
+
+.vol-form input, .vol-form select {
+  width:100%;
+  padding:0.5rem;
+  border:1px solid #cbd5e1;
+  border-radius:4px;
+}
+
+.vol-list {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+
+.vol-card {
+  background:#f9fafb;
+  border:1px solid #e2e8f0;
+  border-radius:8px;
+  padding:0.8rem;
+}
+
+.vol-card h3 { margin:0; font-size:1.1rem; 
+}
+.vol-card p { margin:0.3rem 0; 
+}
+/* =========================
+   DOAÇÕES
+========================= */
+.doa-form-section, .doa-list-section {
+  margin-top:2rem;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:8px;
+  padding:1rem;
+}
+
+.doa-form {
+  display:flex;
+  flex-direction:column;
+  gap:0.8rem;
+}
+
+.doa-form input, .doa-form select {
+  width:100%;
+  padding:0.5rem;
+  border:1px solid #cbd5e1;
+  border-radius:4px;
+}
+
+.doa-list {
+  margin-top:1rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+  gap:1rem;
+}
+
+.doa-card {
+  background:#f9fafb;
+  border:1px solid #e2e8f0;
+  border-radius:8px;
+  padding:0.8rem;
+}
+
+.doa-card h3 { margin:0; font-size:1.1rem; 
+}
+.doa-card p { margin:0.3rem 0; 
+}
+
+.doa-total {
+  margin-top:1.5rem;
+  font-size:1.2rem;
+  background:#f1f5f9;
+  padding:0.8rem;
+  border-radius:6px;
+  text-align:right;
+}
+/* =========================
+   ADMINISTRAÇÃO
+========================= */
+.admin-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.btn.danger {
+  background: #dc2626;
+  color: #fff;
+}
+.btn.danger:hover {
+  background: #b91c1c;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #fff;
+  margin-top: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background: #f1f5f9;
+}
+
+.admin-section {
+  margin-top: 2rem;
+}
+
+/* =========================
+   AJUSTES DE RESPONSIVIDADE GERAL
+========================= */
+
+/* Telas médias (tablets e notebooks pequenos) */
+@media (max-width: 1024px) {
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .gallery-row figure {
+    width: 48%;
+  }
+}
+
+/* Telas pequenas (celulares) */
+@media (max-width: 600px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+    font-size: 1.5rem;
+  }
+
+  .main-nav {
+    display: none;
+    width: 100%;
+  }
+
+  .main-nav.active {
+    display: block;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-row figure {
+    width: 100%;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+/* Telas muito grandes (monitores grandes) */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+/* =========================
+   TEMAS DE COR (Branco / Preto / Azul bebê)
+========================= */
+
+body.branco {
+  background: #ffffff;
+  color: #1f2937;
+}
+
+body.cinza {
+  background: #d9d9d9; /* cinza claro */
+  color: #1f2937; /* texto escuro para boa leitura */
+}
+
+
+body.azulbebe {
+  background: #cce5ff; /* azul bebê suave */
+  color: #0f172a;
+}
+
+/* Ajuste: os elementos continuam legíveis */
+.site-header,
+.site-footer,
+.card,
+.panel,
+.gallery-row figure {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+

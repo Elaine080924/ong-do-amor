@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ONG do Amor</title>
+  <meta name="description" content="Plataforma institucional da ONG — missão, visão, valores, projetos e formas de apoiar." />
+  <!-- Link para o CSS global -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Botões de tema -->
+<div class="theme-switcher" style="text-align:center; padding:0.5rem; background:#eef2ff;">
+  <button class="btn" onclick="setTheme('branco')">Branco</button>
+  <button class="btn" onclick="setTheme('cinza')">Cinza</button>
+  <button class="btn" onclick="setTheme('azulbebe')">Azul bebê</button>
+</div>
+
+  <!-- Header / Navegação principal -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">ONG do Amor</a>
+
+      <!-- Botão do menu para mobile -->
+      <button id="btn-menu" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">
+        ☰
+      </button>
+
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html" class="nav-link" data-link>Início</a></li>
+          <li><a href="projetos.html" class="nav-link" data-link>Projetos</a></li>
+          <li><a href="voluntariado.html" class="nav-link" data-link>Voluntariado</a></li>
+          <li><a href="doacoes.html" class="nav-link" data-link>Doações</a></li>
+          <li><a href="admin.html" class="nav-link" data-link>Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" role="main" class="container">
+    <!-- Hero / destaque -->
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Transformando comunidades com transparência e ação</h1>
+      <p class="lead">Acreditamos em projetos sustentáveis que promovem educação, saúde e desenvolvimento social.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="projetos.html">Conheça nossos projetos</a>
+        <a class="btn" href="voluntariado.html">Seja voluntário</a>
+      </div>
+    </section>
+
+    <!-- Missão / Visão / Valores -->
+    <section class="three-cards" aria-labelledby="mv-title">
+      <h2 id="mv-title" class="section-title">Missão • Visão • Valores</h2>
+      <div class="grid-3">
+        <article class="card" aria-labelledby="missao">
+          <h3 id="missao">Missão</h3>
+          <p>Promover oportunidades ao favor animal, apoio à saúde e fortalecimento comunitário com foco em impacto mensurável.</p>
+        </article>
+
+        <article class="card" aria-labelledby="visao">
+          <h3 id="visao">Visão</h3>
+          <p>Ser referência regional em projetos sociais que geram autonomia e resultado de longo prazo.</p>
+        </article>
+
+        <article class="card" aria-labelledby="valores">
+          <h3 id="valores">Valores</h3>
+          <ul>
+            <li>Transparência</li>
+            <li>Participação comunitária</li>
+            <li>Rigor técnico</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Destaques: relatórios, indicadores e voluntariado -->
+    <section class="highlights" aria-labelledby="high-title">
+      <h2 id="high-title" class="section-title">Relatórios & Impacto</h2>
+
+      <div class="grid-2">
+        <div class="panel">
+          <h3>Último relatório de transparência</h3>
+          <p>Relatório trimestral disponível para download com detalhamento de receitas e despesas por projeto.</p>
+          <div class="panel-actions">
+            <a href="#" class="btn" id="download-report">Baixar PDF (simulado)</a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Indicadores principais</h3>
+          <ul class="stats-list" id="stats-list" aria-live="polite">
+            <!-- Preenchido por JS: número de projetos, voluntários, doações -->
+            <li>Projetos ativos: <strong id="stat-projects">3.597</strong></li>
+            <li>Voluntários cadastrados: <strong id="stat-vols">349.765</strong></li>
+            <li>Doações realizadas: <strong id="stat-donations">28.245,64</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeria simples -->
+    <section class="gallery" aria-labelledby="gallery-title">
+      <h2 id="gallery-title" class="section-title">Galeria</h2>
+      <div class="gallery-row">
+        <figure>
+          <img src="img/Logo_da_Ong.jpeg" alt="Logo da Ong do amor" onerror="this.style.display='none'">
+          <figcaption>Logo Ong do Amor</figcaption>
+        </figure>
+        <figure>
+          <img src="img/Ong_Animal.jpeg" alt="Ong Animal cheio de amor" onerror="this.style.display='none'">
+          <figcaption>Ongs de Animais</figcaption>
+        </figure>
+        <figure>
+          <img src="img/Doacoes_e_voluntarios.jpeg" alt="Voluntários ajudando a separar as doações" onerror="this.style.display='none'">
+          <figcaption>Distribuição de Doaçoes</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div>
+        <strong>ONG do Amor</strong>
+        <p>Rua Exemplo, 123 — Cidade — Estado</p>
+        <p>Email: contato@ongdoamor.org • Tel: (11) 1234-5678</p>
+      </div>
+      <div>
+        <nav aria-label="Rodapé">
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="doacoes.html">Doações</a></li>
+            <li><a href="voluntariado.html">Voluntariado</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="copyright container">
+      © <span id="year"></span> ONG do Amor — Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <!-- Scripts comuns -->
+  <script src="main.js"></script>
+</body>
+</html>

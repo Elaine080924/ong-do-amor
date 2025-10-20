@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ONG do amor — Voluntariado</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">ONG do Amor</a>
+      <button id="btn-menu" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">☰</button>
+      <nav id="main-nav" class="main-nav">
+        <ul>
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="projetos.html" class="nav-link">Projetos</a></li>
+          <li><a href="voluntariado.html" class="nav-link active">Voluntariado</a></li>
+          <li><a href="doacoes.html" class="nav-link">Doações</a></li>
+          <li><a href="admin.html" class="nav-link">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <h1 class="section-title">Voluntariado</h1>
+    <p>Participe de nossos projetos e ajude a transformar vidas! Preencha o formulário abaixo para se cadastrar como voluntário.</p>
+
+    <section class="vol-form-section">
+  <h2>Cadastro de Voluntário</h2>
+  <form id="form-voluntario" class="vol-form">
+    <label>
+      Nome completo:
+      <input type="text" id="vol-nome" required />
+    </label>
+
+    <label>
+      E-mail:
+      <input type="email" id="vol-email" required />
+    </label>
+
+    <label>
+      CPF:
+      <input type="text" id="vol-cpf" required maxlength="14" placeholder="000.000.000-00"/>
+    </label>
+
+    <label>
+      Telefone:
+      <input type="text" id="vol-telefone" required maxlength="15" placeholder="(00) 00000-0000"/>
+    </label>
+
+    <label>
+      Data de nascimento:
+      <input type="date" id="vol-nascimento" required />
+    </label>
+
+    <label>
+      Endereço:
+      <input type="text" id="vol-endereco" required />
+    </label>
+
+    <label>
+      CEP:
+      <input type="text" id="vol-cep" required maxlength="9" placeholder="00000-000"/>
+    </label>
+
+    <label>
+      Cidade:
+      <input type="text" id="vol-cidade" required />
+    </label>
+
+    <label>
+      Estado:
+      <input type="text" id="vol-estado" required maxlength="2" placeholder="UF"/>
+    </label>
+
+    <label>
+      Área de interesse:
+      <select id="vol-area" required>
+        <option value="">Selecione...</option>
+        <option>Animal</option>
+        <option>Saúde</option>
+        <option>Meio Ambiente</option>
+        <option>Eventos e Comunicação</option>
+      </select>
+    </label>
+
+    <button type="submit" class="btn primary">Cadastrar</button>
+  </form>
+</section>
+
+<section class="vol-list-section">
+  <h2>Voluntários Cadastrados</h2>
+  <div id="vol-list" class="vol-list" aria-live="polite">
+    <!-- JS renderiza aqui -->
+  </div>
+</section>
+
+<script>
+  // Máscaras para CPF, telefone e CEP
+  function maskCPF(value) {
+    return value
+      .replace(/\D/g, '')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+  }
+
+  function maskTelefone(value) {
+    return value
+      .replace(/\D/g, '')
+      .replace(/(\d{2})(\d)/, '($1) $2')
+      .replace(/(\d{5})(\d)/, '$1-$2');
+  }
+
+  function maskCEP(value) {
+    return value
+      .replace(/\D/g, '')
+      .replace(/(\d{5})(\d)/, '$1-$2');
+  }
+
+  document.getElementById('vol-cpf').addEventListener('input', e => {
+    e.target.value = maskCPF(e.target.value);
+  });
+
+  document.getElementById('vol-telefone').addEventListener('input', e => {
+    e.target.value = maskTelefone(e.target.value);
+  });
+
+  document.getElementById('vol-cep').addEventListener('input', e => {
+    e.target.value = maskCEP(e.target.value);
+  });
+
+  // Cadastro de voluntários
+  const form = document.getElementById('form-voluntario');
+  const volList = document.getElementById('vol-list');
+  const voluntarios = [];
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Cria objeto do voluntário
+    const voluntario = {
+      nome: document.getElementById('vol-nome').value,
+      email: document.getElementById('vol-email').value,
+      cpf: document.getElementById('vol-cpf').value,
+      telefone: document.getElementById('vol-telefone').value,
+      nascimento: document.getElementById('vol-nascimento').value,
+      endereco: document.getElementById('vol-endereco').value,
+      cep: document.getElementById('vol-cep').value,
+      cidade: document.getElementById('vol-cidade').value,
+      estado: document.getElementById('vol-estado').value,
+      area: document.getElementById('vol-area').value
+    };
+
+    // Adiciona ao array
+    voluntarios.push(voluntario);
+
+    // Atualiza a lista
+    renderVoluntarios();
+
+    // Reseta formulário
+    form.reset();
+  });
+
+  function renderVoluntarios() {
+    volList.innerHTML = '';
+    voluntarios.forEach((vol, index) => {
+      const volDiv = document.createElement('div');
+      volDiv.className = 'vol-item';
+      volDiv.innerHTML = `
+        <strong>${index + 1}. ${vol.nome}</strong><br>
+        E-mail: ${vol.email}<br>
+        CPF: ${vol.cpf}<br>
+        Telefone: ${vol.telefone}<br>
+        Nascimento: ${vol.nascimento}<br>
+        Endereço: ${vol.endereco}, ${vol.cidade} - ${vol.estado}, CEP: ${vol.cep}<br>
+        Área de interesse: ${vol.area}
+      `;
+      volList.appendChild(volDiv);
+    });
+  }
+</script>
+
+    <section class="vol-list-section">
+      <h2>Voluntários Cadastrados</h2>
+      <div id="vol-list" class="vol-list" aria-live="polite">
+        <!-- JS renderiza aqui -->
+      </div>
+    </section>
+
+    <!-- Galeria simples -->
+    <section class="gallery" aria-labelledby="gallery-title">
+      <h2 id="gallery-title" class="section-title">Galeria</h2>
+      <div class="gallery-vol">
+        <figure>
+          <img src="img/Voluntarios.jpeg" alt="Voluntarios" onerror="this.style.display='none'">
+          <figcaption>Voluntários</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>ONG do Amor</strong><br />
+        <small>Email: contato@ongdoamor.org</small>
+      </div>
+      <div>© <span id="year"></span> ONG do Amor</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="voluntariado.js"></script>
+</body>
+</html>
