@@ -1,4 +1,4 @@
-/* voluntariado.js
+/* cadastro.js
    Gerencia o cadastro e listagem de voluntários usando localStorage.
 */
 
