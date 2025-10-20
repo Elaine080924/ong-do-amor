@@ -60,6 +60,9 @@ html,body { margin:0; padding:0; font-family: system-ui, -apple-system, "Segoe U
   .grid-3, .grid-2 { grid-template-columns:1fr; }
 }
 
+/* Gallery */
+.gallery { text-align: center;}
+
 /* Gallery row */
 .gallery-row { display:flex; gap:0.75rem; margin-top:0.75rem; 
 }
