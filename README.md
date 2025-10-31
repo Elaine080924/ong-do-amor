@@ -10,9 +10,7 @@ HTML5 -	Estrutura das páginas e conteúdo do site;
 
 CSS3 -	Estilização, layout e responsividade;
 
-JavaScript (Vanilla) -	Lógica de interação, manipulação de DOM e armazenamento local;
-
-LocalStorage (Browser) -	Registro simples de dados no navegador para simular backend;
+JavaScript (Vanilla) -	Lógica de interação, manipulação de DOM;
 
 Git & GitHub -	Versionamento e publicação do código.
 
@@ -64,8 +62,6 @@ Página,	Arquivo e	Descrição:
 
 ✅ Formulário de cadastro de voluntários
 
-✅ Armazenamento dos dados no LocalStorage
-
 ✅ Página administrativa para listar cadastros
 
 ✅ Scripts separados por página para organização
@@ -81,18 +77,6 @@ Você pode abrir o projeto em qualquer navegador:
 index.html
 
 Ou usar uma extensão como Live Server no VS Code.
-
-📌 Melhorias Futuras:
-
-Integração com um backend real (Node, Java, Firebase etc.)
-
-Sistema real de doações com gateway de pagamento
-
-Autenticação para o painel administrativo
-
-Estilização avançada com frameworks (Bootstrap / Tailwind / Material UI)
-
-Armazenamento em banco de dados
 
 👤 Elaíne
 
