@@ -533,7 +533,7 @@ th {
   }
 }
 /* =========================
-   TEMAS DE COR (Branco / Preto / Azul bebê)
+   TEMAS DE COR (Branco / Cinza / Azul bebê / Preto)
 ========================= */
 
 body.branco {
@@ -542,14 +542,19 @@ body.branco {
 }
 
 body.cinza {
-  background: #d9d9d9; /* cinza claro */
+  background: #6c6c6c; /* cinza claro */
   color: #1f2937; /* texto escuro para boa leitura */
 }
 
 
 body.azulbebe {
-  background: #cce5ff; /* azul bebê suave */
-  color: #0f172a;
+  background: #78a8db; /* azul bebê suave */
+  color: #10172a;
+}
+
+body.preto {
+  background: #000;
+  color: #7070e9;
 }
 
 /* Ajuste: os elementos continuam legíveis */

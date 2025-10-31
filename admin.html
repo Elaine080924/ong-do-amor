@@ -7,56 +7,63 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
+    <!-- Botões de tema -->
+<div class="theme-switcher" style="text-align:center; padding:0.5rem; background:#eef2ff;" role="region" aria-label="Seleção de tema">
+  <button class="btn" onclick="setTheme('branco')" aria-label="Tema claro">☀</button>
+  <button class="btn" onclick="setTheme('cinza')" aria-label="Tema cinza">🪩</button>
+  <button class="btn" onclick="setTheme('azulbebe')" aria-label="Tema azul bebê">☁︎</button>
+  <button class="btn" onclick="setTheme('preto')" aria-label="Tema escuro">⏾</button>
+</div>
+  <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a class="brand" href="index.html">ONG do Amor</a>
-      <button id="btn-menu" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">☰</button>
-      <nav id="main-nav" class="main-nav">
+      <a class="brand" href="index.html" aria-label="Página inicial - ONG do Amor">ONG do Amor</a>
+      <button id="btn-menu" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu principal">☰</button>
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Navegação principal do site">
         <ul>
-          <li><a href="index.html" class="nav-link">Início</a></li>
-          <li><a href="projetos.html" class="nav-link">Projetos</a></li>
-          <li><a href="cadastro.html" class="nav-link">Cadastro</a></li>
-          <li><a href="doacoes.html" class="nav-link">Doações</a></li>
-          <li><a href="admin.html" class="nav-link active">Admin</a></li>
+          <li><a href="index.html" class="nav-link" aria-label="Ir para Início">Início</a></li>
+          <li><a href="projetos.html" class="nav-link" aria-label="Ir para Projetos">Projetos</a></li>
+          <li><a href="cadastro.html" class="nav-link" aria-label="Ir para Cadastro">Cadastro</a></li>
+          <li><a href="doacoes.html" class="nav-link" aria-label="Ir para Doações">Doações</a></li>
+          <li><a href="admin.html" class="nav-link active" aria-label="Ir para Admin" aria-current="page">Admin</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container" id="main">
+  <main class="container" id="main" role="main">
     <h1 class="section-title">Painel Administrativo</h1>
     <p>Área restrita para administradores: visualize e gerencie as informações cadastradas no sistema.</p>
 
-    <section class="admin-actions">
-      <button id="btn-relatorio" class="btn secondary">Gerar Relatório de Transparência</button>
-      <button id="btn-limpar" class="btn danger">Limpar Todos os Dados</button>
+    <section class="admin-actions" role="region" aria-label="Ações administrativas">
+      <button id="btn-relatorio" class="btn secondary" aria-label="Gerar relatório de transparência em PDF">Gerar Relatório de Transparência</button>
+      <button id="btn-limpar" class="btn danger" aria-label="Limpar todos os dados do sistema" aria-describedby="limpar-warning">Limpar Todos os Dados</button>
     </section>
 
-    <section class="admin-section">
-      <h2>Projetos Cadastrados</h2>
-      <div id="tabela-projetos" class="table-wrapper"></div>
+    <section class="admin-section" role="region" aria-labelledby="projetos-title">
+      <h2 id="projetos-title">Projetos Cadastrados</h2>
+      <div id="tabela-projetos" class="table-wrapper" role="table" aria-label="Tabela de projetos cadastrados" aria-live="polite"></div>
     </section>
 
-    <section class="admin-section">
-      <h2>Voluntários Inscritos</h2>
-      <div id="tabela-voluntarios" class="table-wrapper"></div>
+    <section class="admin-section" role="region" aria-labelledby="voluntarios-title">
+      <h2 id="voluntarios-title">Voluntários Inscritos</h2>
+      <div id="tabela-voluntarios" class="table-wrapper" role="table" aria-label="Tabela de voluntários inscritos" aria-live="polite"></div>
     </section>
 
-    <section class="admin-section">
-      <h2>Doações Recebidas</h2>
-      <div id="tabela-doacoes" class="table-wrapper"></div>
+    <section class="admin-section" role="region" aria-labelledby="doacoes-title">
+      <h2 id="doacoes-title">Doações Recebidas</h2>
+      <div id="tabela-doacoes" class="table-wrapper" role="table" aria-label="Tabela de doações recebidas" aria-live="polite"></div>
     </section>
 
 <!-- Galeria simples -->
-    <section class="gallery" aria-labelledby="gallery-title">
+    <section class="gallery" aria-labelledby="gallery-title" role="region" aria-label="Galeria administrativa">
       <h2 id="gallery-title" class="section-title">Galeria</h2>
       <div class="gallery-adm">
         <figure>
-          <img src="img/Logo_da_Ong.jpeg" alt="Logo" onerror="this.style.display='none'">
+          <img src="img/Logo_da_Ong.jpeg" alt="Logotipo oficial da ONG do Amor" onerror="this.style.display='none'">
           <figcaption>Logo Ong do Amor</figcaption>
         </figure>
         <figure>
-          <img src="img/Admin.jpeg" alt="Admin" onerror="this.style.display='none'">
+          <img src="img/Admin.jpeg" alt="Administrador trabalhando no painel de controle do sistema" onerror="this.style.display='none'">
           <figcaption>Administrador</figcaption>
         </figure>
       </div>
@@ -65,11 +72,11 @@
   </main>
 
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo" aria-label="Rodapé do site">
     <div class="container footer-inner">
       <div>
         <strong>ONG do Amor</strong><br />
-        <small>Email: contato@ongdoamor.org</small>
+        <small aria-label="Enviar email para contato@ongdoamor.org">Email: contato@ongdoamor.org</small>
       </div>
       <div>© <span id="year"></span> ONG do Amor</div>
     </div>

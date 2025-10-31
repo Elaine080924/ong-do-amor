@@ -7,51 +7,58 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
+    <!-- Botões de tema -->
+<div class="theme-switcher" style="text-align:center; padding:0.5rem; background:#eef2ff;" role="region" aria-label="Seleção de tema">
+  <button class="btn" onclick="setTheme('branco')" aria-label="Tema claro">☀</button>
+  <button class="btn" onclick="setTheme('cinza')" aria-label="Tema cinza">🪩</button>
+  <button class="btn" onclick="setTheme('azulbebe')" aria-label="Tema azul bebê">☁︎</button>
+  <button class="btn" onclick="setTheme('preto')" aria-label="Tema escuro">⏾</button>
+</div>
+  <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a class="brand" href="index.html">ONG do Amor</a>
-      <button id="btn-menu" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">☰</button>
-      <nav id="main-nav" class="main-nav">
+      <a class="brand" href="index.html" aria-label="Página inicial - ONG do Amor">ONG do Amor</a>
+      <button id="btn-menu" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu principal">☰</button>
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Navegação principal do site">
         <ul>
-          <li><a href="index.html" class="nav-link">Início</a></li>
-          <li><a href="projetos.html" class="nav-link">Projetos</a></li>
-          <li><a href="cadastro.html" class="nav-link">Cadastro</a></li>
-          <li><a href="doacoes.html" class="nav-link">Doações</a></li>
-          <li><a href="admin.html" class="nav-link">Admin</a></li>
+          <li><a href="index.html" class="nav-link" aria-label="Ir para Início">Início</a></li>
+          <li><a href="projetos.html" class="nav-link" aria-label="Ir para Projetos" aria-current="page">Projetos</a></li>
+          <li><a href="cadastro.html" class="nav-link" aria-label="Ir para Cadastro">Cadastro</a></li>
+          <li><a href="doacoes.html" class="nav-link" aria-label="Ir para Doações">Doações</a></li>
+          <li><a href="admin.html" class="nav-link" aria-label="Ir para Admin">Admin</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container" id="main">
+  <main class="container" id="main" role="main">
     <h1 class="section-title">Projetos Ativos</h1>
     <p>Veja nossos projetos em andamento e acompanhe o progresso de cada um.</p>
 
-    <div class="project-actions">
-      <button id="btn-add-project" class="btn primary">+ Novo Projeto</button>
+    <div class="project-actions" role="region" aria-label="Ações de projeto">
+      <button id="btn-add-project" class="btn primary" aria-label="Adicionar novo projeto">+ Novo Projeto</button>
     </div>
 
-    <div id="project-list" class="project-list grid-2" aria-live="polite">
+    <div id="project-list" class="project-list grid-2" aria-live="polite" role="region" aria-label="Lista de projetos">
       <!-- JS renderiza aqui -->
     </div>
   </main>
 
   <!-- Modal para novo projeto -->
-  <div id="project-modal" class="modal" role="dialog" aria-hidden="true">
+  <div id="project-modal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="modal-title" aria-modal="true">
     <div class="modal-content">
-      <h2>Novo Projeto</h2>
-      <form id="form-project">
-        <label>
+      <h2 id="modal-title">Novo Projeto</h2>
+      <form id="form-project" role="form" aria-label="Formulário de novo projeto">
+        <label for="proj-title">
           Nome do Projeto:
-          <input type="text" id="proj-title" required />
+          <input type="text" id="proj-title" required aria-describedby="proj-title-help" />
         </label>
-        <label>
+        <label for="proj-summary">
           Resumo:
-          <textarea id="proj-summary" rows="3" required></textarea>
+          <textarea id="proj-summary" rows="3" required aria-describedby="proj-summary-help"></textarea>
         </label>
-        <label>
+        <label for="proj-category">
           Categoria:
-          <select id="proj-category" required>
+          <select id="proj-category" required aria-describedby="proj-category-help">
             <option value="">Selecione...</option>
             <option>Animal</option>
             <option>Saúde</option>
@@ -59,31 +66,31 @@
             <option>Outros</option>
           </select>
         </label>
-        <label>
+        <label for="proj-progress">
           Progresso (%):
-          <input type="number" id="proj-progress" min="0" max="100" value="0" />
+          <input type="number" id="proj-progress" min="0" max="100" value="0" aria-describedby="proj-progress-help" />
         </label>
 
-        <div class="modal-actions">
-          <button type="submit" class="btn primary">Salvar</button>
-          <button type="button" id="btn-cancel" class="btn">Cancelar</button>
+        <div class="modal-actions" role="group" aria-label="Ações do formulário">
+          <button type="submit" class="btn primary" aria-label="Salvar projeto">Salvar</button>
+          <button type="button" id="btn-cancel" class="btn" aria-label="Cancelar criação do projeto">Cancelar</button>
         </div>
       </form>
     </div>
   </div>
 
   <!-- Galeria simples -->
-    <section class="gallery" aria-labelledby="gallery-title">
+    <section class="gallery" aria-labelledby="gallery-title" role="region" aria-label="Galeria de projetos">
       <h2 id="gallery-title" class="section-title">Galeria</h2>
       <div class="gallery-pro">
         <figure>
-          <img src="img/Projetos.jpeg" alt="Projeto" onerror="this.style.display='none'">
+          <img src="img/Projetos.jpeg" alt="Equipe trabalhando em projetos da ONG com animais" onerror="this.style.display='none'">
           <figcaption>Projeto Ong de Animais</figcaption>
         </figure>
       </div>
     </section>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo" aria-label="Rodapé do site">
     <div class="container footer-inner">
       <div>
         <strong>ONG do Amor</strong><br />

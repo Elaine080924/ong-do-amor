@@ -10,29 +10,30 @@
 </head>
 <body>
   <!-- Botões de tema -->
-<div class="theme-switcher" style="text-align:center; padding:0.5rem; background:#eef2ff;">
-  <button class="btn" onclick="setTheme('branco')">Branco</button>
-  <button class="btn" onclick="setTheme('cinza')">Cinza</button>
-  <button class="btn" onclick="setTheme('azulbebe')">Azul bebê</button>
-</div>
+  <div class="theme-switcher" style="text-align:center; padding:0.5rem; background:#eef2ff;" role="region" aria-label="Seleção de tema">
+    <button class="btn" onclick="setTheme('branco')" aria-label="Tema claro">☀</button>
+    <button class="btn" onclick="setTheme('cinza')" aria-label="Tema cinza">🪩</button>
+    <button class="btn" onclick="setTheme('azulbebe')" aria-label="Tema azul bebê">☁︎</button>
+    <button class="btn" onclick="setTheme('preto')" aria-label="Tema escuro">⏾</button>
+  </div>
 
   <!-- Header / Navegação principal -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a class="brand" href="index.html">ONG do Amor</a>
+      <a class="brand" href="index.html" aria-label="Página inicial - ONG do Amor">ONG do Amor</a>
 
       <!-- Botão do menu para mobile -->
-      <button id="btn-menu" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">
+      <button id="btn-menu" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu principal">
         ☰
       </button>
 
-      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal">
+    <nav id="main-nav" class="main-nav" role="navigation" aria-label="Navegação principal do site">
         <ul>
-          <li><a href="index.html" class="nav-link" data-link>Início</a></li>
-          <li><a href="projetos.html" class="nav-link" data-link>Projetos</a></li>
-          <li><a href="cadastro.html" class="nav-link" data-link>Cadastro</a></li>
-          <li><a href="doacoes.html" class="nav-link" data-link>Doações</a></li>
-          <li><a href="admin.html" class="nav-link" data-link>Admin</a></li>
+          <li><a href="index.html" class="nav-link" data-link aria-label="Ir para Início">Início</a></li>
+          <li><a href="projetos.html" class="nav-link" data-link aria-label="Ir para Projetos">Projetos</a></li>
+          <li><a href="cadastro.html" class="nav-link" data-link aria-label="Ir para Cadastro">Cadastro</a></li>
+          <li><a href="doacoes.html" class="nav-link" data-link aria-label="Ir para Doações">Doações</a></li>
+          <li><a href="admin.html" class="nav-link" data-link aria-label="Ir para Admin">Admin</a></li>
         </ul>
       </nav>
     </div>
@@ -40,30 +41,30 @@
 
   <main id="main" role="main" class="container">
     <!-- Hero / destaque -->
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" aria-labelledby="hero-title" role="region" aria-label="Destaque principal">
       <h1 id="hero-title">Transformando comunidades com transparência e ação</h1>
       <p class="lead">Acreditamos em projetos sustentáveis que promovem educação, saúde e desenvolvimento social.</p>
-      <div class="hero-cta">
-        <a class="btn primary" href="projetos.html">Conheça nossos projetos</a>
-        <a class="btn" href="cadastro.html">Seja voluntário</a>
+      <div class="hero-cta" role="group" aria-label="Ações do destaque">
+        <a class="btn primary" href="projetos.html" aria-label="Conheça nossos projetos">Conheça nossos projetos</a>
+        <a class="btn" href="cadastro.html" aria-label="Inscreva-se como voluntário">Seja voluntário</a>
       </div>
     </section>
 
     <!-- Missão / Visão / Valores -->
-    <section class="three-cards" aria-labelledby="mv-title">
+    <section class="three-cards" aria-labelledby="mv-title" role="region" aria-label="Missão, visão e valores">
       <h2 id="mv-title" class="section-title">Missão • Visão • Valores</h2>
       <div class="grid-3">
-        <article class="card" aria-labelledby="missao">
+        <article class="card" aria-labelledby="missao" role="article">
           <h3 id="missao">Missão</h3>
           <p>Promover oportunidades ao favor animal, apoio à saúde e fortalecimento comunitário com foco em impacto mensurável.</p>
         </article>
 
-        <article class="card" aria-labelledby="visao">
+        <article class="card" aria-labelledby="visao" role="article">
           <h3 id="visao">Visão</h3>
           <p>Ser referência regional em projetos sociais que geram autonomia e resultado de longo prazo.</p>
         </article>
 
-        <article class="card" aria-labelledby="valores">
+        <article class="card" aria-labelledby="valores" role="article">
           <h3 id="valores">Valores</h3>
           <ul>
             <li>Transparência</li>
@@ -75,19 +76,19 @@
     </section>
 
     <!-- Destaques: relatórios, indicadores e cadastro -->
-    <section class="highlights" aria-labelledby="high-title">
+    <section class="highlights" aria-labelledby="high-title" role="region" aria-label="Relatórios e indicadores">
       <h2 id="high-title" class="section-title">Relatórios & Impacto</h2>
 
       <div class="grid-2">
-        <div class="panel">
+        <div class="panel" role="region" aria-label="Relatório de transparência">
           <h3>Último relatório de transparência</h3>
           <p>Relatório trimestral disponível para download com detalhamento de receitas e despesas por projeto.</p>
           <div class="panel-actions">
-            <a href="#" class="btn" id="download-report">Baixar PDF (simulado)</a>
+            <a href="#" class="btn" id="download-report" aria-label="Baixar relatório de transparência">Baixar PDF (simulado)</a>
           </div>
         </div>
 
-        <div class="panel">
+        <div class="panel" role="region" aria-label="Indicadores principais">
           <h3>Indicadores principais</h3>
           <ul class="stats-list" id="stats-list" aria-live="polite">
             <!-- Preenchido por JS: número de projetos, voluntários, doações -->
@@ -100,20 +101,20 @@
     </section>
 
     <!-- Galeria simples -->
-    <section class="gallery" aria-labelledby="gallery-title">
+    <section class="gallery" aria-labelledby="gallery-title" role="region" aria-label="Galeria de imagens">
       <h2 id="gallery-title" class="section-title">Galeria</h2>
       <div class="gallery-row">
         <figure>
-          <img src="img/Logo_da_Ong.jpeg" alt="Logo da Ong do amor" onerror="this.style.display='none'">
-          <figcaption>Logo Ong do Amor</figcaption>
+        <img src="img/Logo_da_Ong.jpeg" alt="Logotipo da ONG do Amor" onerror="this.style.display='none'">
+        <figcaption>Logo Ong do Amor</figcaption>
         </figure>
         <figure>
-          <img src="img/Ong_Animal.jpeg" alt="Ong Animal cheio de amor" onerror="this.style.display='none'">
-          <figcaption>Ongs de Animais</figcaption>
+        <img src="img/Ong_Animal.jpeg" alt="Equipe de voluntários cuidando de animais" onerror="this.style.display='none'">
+        <figcaption>Ongs de Animais</figcaption>
         </figure>
         <figure>
-          <img src="img/Doacoes_e_voluntarios.jpeg" alt="Voluntários ajudando a separar as doações" onerror="this.style.display='none'">
-          <figcaption>Distribuição de Doaçoes</figcaption>
+        <img src="img/Doacoes_e_voluntarios.jpeg" alt="Voluntários organizando doações" onerror="this.style.display='none'">
+        <figcaption>Distribuição de Doações</figcaption>
         </figure>
       </div>
     </section>
@@ -121,7 +122,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer" role="contentinfo" aria-label="Rodapé do site">
     <div class="container footer-inner">
       <div>
         <strong>ONG do Amor</strong>
@@ -131,10 +132,10 @@
       <div>
         <nav aria-label="Rodapé">
           <ul class="footer-links">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="projetos.html">Projetos</a></li>
-            <li><a href="doacoes.html">Doações</a></li>
-            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="index.html" aria-label="Ir para Início">Início</a></li>
+            <li><a href="projetos.html" aria-label="Ir para Projetos">Projetos</a></li>
+            <li><a href="doacoes.html" aria-label="Ir para Doações">Doações</a></li>
+            <li><a href="cadastro.html" aria-label="Ir para Cadastro">Cadastro</a></li>
           </ul>
         </nav>
       </div>

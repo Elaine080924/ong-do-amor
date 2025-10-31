@@ -7,84 +7,91 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
+    <!-- Botões de tema -->
+<div class="theme-switcher" style="text-align:center; padding:0.5rem; background:#eef2ff;" role="region" aria-label="Seleção de tema">
+  <button class="btn" onclick="setTheme('branco')" aria-label="Tema claro">☀</button>
+  <button class="btn" onclick="setTheme('cinza')" aria-label="Tema cinza">🪩</button>
+  <button class="btn" onclick="setTheme('azulbebe')" aria-label="Tema azul bebê">☁︎</button>
+  <button class="btn" onclick="setTheme('preto')" aria-label="Tema escuro">⏾</button>
+</div>
+  <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a class="brand" href="index.html">ONG do Amor</a>
-      <button id="btn-menu" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">☰</button>
-      <nav id="main-nav" class="main-nav">
+      <a class="brand" href="index.html" aria-label="Página inicial - ONG do Amor">ONG do Amor</a>
+      <button id="btn-menu" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu principal">☰</button>
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Navegação principal do site">
         <ul>
-          <li><a href="index.html" class="nav-link">Início</a></li>
-          <li><a href="projetos.html" class="nav-link">Projetos</a></li>
-          <li><a href="cadastro.html" class="nav-link">Cadastro</a></li>
-          <li><a href="doacoes.html" class="nav-link active">Doações</a></li>
-          <li><a href="admin.html" class="nav-link">Admin</a></li>
+          <li><a href="index.html" class="nav-link" aria-label="Ir para Início">Início</a></li>
+          <li><a href="projetos.html" class="nav-link" aria-label="Ir para Projetos">Projetos</a></li>
+          <li><a href="cadastro.html" class="nav-link" aria-label="Ir para Cadastro">Cadastro</a></li>
+          <li><a href="doacoes.html" class="nav-link active" aria-label="Ir para Doações" aria-current="page">Doações</a></li>
+          <li><a href="admin.html" class="nav-link" aria-label="Ir para Admin">Admin</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container" id="main">
+  <main class="container" id="main" role="main">
     <h1 class="section-title">Doações</h1>
     <p>Contribua com nossa missão! Sua doação faz a diferença para que possamos continuar transformando vidas.</p>
 
-    <section class="doa-form-section">
-      <h2>Faça sua Doação</h2>
-      <form id="form-doacao" class="doa-form">
-        <label>
+    <section class="doa-form-section" role="region" aria-labelledby="form-title">
+      <h2 id="form-title">Faça sua Doação</h2>
+      <form id="form-doacao" class="doa-form" role="form" aria-label="Formulário de doação">
+        <label for="doa-nome">
           Nome:
-          <input type="text" id="doa-nome" required />
+          <input type="text" id="doa-nome" required aria-describedby="nome-help" />
         </label>
-        <label>
+        <label for="doa-valor">
           Valor (R$):
-          <input type="number" id="doa-valor" min="1" step="0.01" required />
+          <input type="number" id="doa-valor" min="1" step="0.01" required aria-describedby="valor-help" />
         </label>
-        <label>
+        <label for="doa-metodo">
           Método de pagamento:
-          <select id="doa-metodo" required>
+          <select id="doa-metodo" required aria-describedby="metodo-help">
             <option value="">Selecione...</option>
             <option>Pix</option>
             <option>Cartão de Crédito</option>
             <option>Boleto Bancário</option>
           </select>
         </label>
-        <button type="submit" class="btn primary">Doar</button>
+        <button type="submit" class="btn primary" aria-label="Confirmar doação">Doar</button>
       </form>
     </section>
 
-    <section class="doa-list-section">
-      <h2>Últimas Doações</h2>
-      <div id="doa-list" class="doa-list" aria-live="polite">
+    <section class="doa-list-section" role="region" aria-labelledby="list-title">
+      <h2 id="list-title">Últimas Doações</h2>
+      <div id="doa-list" class="doa-list" aria-live="polite" role="log" aria-label="Lista de doações recebidas">
         <!-- JS insere as doações aqui -->
       </div>
 
-      <div class="doa-total">
+      <div class="doa-total" role="status" aria-label="Total arrecadado">
         <strong>Total arrecadado:</strong>
         <span id="total-arrecadado">R$ 0,00</span>
       </div>
     </section>
 
     <!-- Galeria simples -->
-    <section class="gallery" aria-labelledby="gallery-title">
+    <section class="gallery" aria-labelledby="gallery-title" role="region" aria-label="Galeria de doações">
       <h2 id="gallery-title" class="section-title">Galeria</h2>
       <div class="gallery-doa">
         <figure>
-          <img src="img/Doacoes.jpeg" alt="Doacoes" onerror="this.style.display='none'">
-          <figcaption>Doacões</figcaption>
+          <img src="img/Doacoes.jpeg" alt="Voluntários organizando e distribuindo doações para a comunidade" onerror="this.style.display='none'">
+          <figcaption>Doações</figcaption>
         </figure>
         <figure>
-          <img src="img/Doacoes1.jpeg" alt="Doacoes" onerror="this.style.display='none'">
-          <figcaption>Doacões</figcaption>
+          <img src="img/Doacoes1.jpeg" alt="Caixas de doações sendo preparadas para distribuição" onerror="this.style.display='none'">
+          <figcaption>Doações</figcaption>
         </figure>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo" aria-label="Rodapé do site">
     <div class="container footer-inner">
       <div>
         <strong>ONG do Amor</strong><br />
-        <small>Email: contato@ongdoamor.org</small>
+        <small aria-label="Enviar email para contato@ongdoamor.org">Email: contato@ongdoamor.org</small>
       </div>
       <div>© <span id="year"></span> ONG do Amor</div>
     </div>
